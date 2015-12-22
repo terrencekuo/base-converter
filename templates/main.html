@@ -1,0 +1,30 @@
+<html>
+	<head lang="en">
+		<title>Base Converter</title>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    	<script type="text/javascript" src="{{ url_for('static', filename='js/base_converter.js') }}"></script>
+    	<script type="text/javascript" src="{{ url_for('static', filename='js/base_checker.js') }}"></script>
+	</head>
+	<body>
+		<H1> Numerical Base Converter </H1>
+		<form id="base_converter" method="get" onsubmit="Converter(); return false;">
+			<div>
+				<input id="decimal" type="radio" name="baseType" value="decimal">Decimal
+				<input id="binary" type="radio" name="baseType" value="binary">Binary
+				<input id="hexidecimal" type="radio" name="baseType" value="hexidecimal">Hexidecimal
+			</div>
+			<div id="h_input">
+				Input:
+				<input id="input" type="text" name="input" oninput="baseChecker()">
+				<input name="submit" type="submit" value="submit">
+			</div>
+		</form>
+		<div id="h_output">
+			Output:
+			<br>
+		</div>
+	</body>
+</html>	
