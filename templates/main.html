@@ -5,26 +5,43 @@
     	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+    	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     	<script type="text/javascript" src="{{ url_for('static', filename='js/base_converter.js') }}"></script>
     	<script type="text/javascript" src="{{ url_for('static', filename='js/base_checker.js') }}"></script>
+    	<style>
+		body {
+    		text-align: center;	
+		}
+		</style>
 	</head>
 	<body>
-		<H1> Numerical Base Converter </H1>
-		<form id="base_converter" method="get" onsubmit="Converter(); return false;">
-			<div>
-				<input id="decimal" type="radio" name="baseType" value="decimal">Decimal
-				<input id="binary" type="radio" name="baseType" value="binary">Binary
-				<input id="hexidecimal" type="radio" name="baseType" value="hexidecimal">Hexidecimal
+		<div class="container">
+			<div class = "starter-template">
+				<h1>Numerical Base Converter</h1>
+				<br>
+				<form id="base_converter" method="get" onsubmit="Converter(); return false;">
+					<div>
+						<input id="decimal" type="radio" name="baseType" value="decimal" onclick="addDecimal()" >
+							<label for="decimal">Decimal</label>
+						<input id="binary" type="radio" name="baseType" value="binary" onclick="addBinary()">
+							<label for="binary">Unsigned Binary</label>
+						<input id="hexidecimal" type="radio" name="baseType" value="hexidecimal" onclick="addHex()">
+							<label for="hexidecimal">Hexidecimal</label>
+					</div>
+					<br>
+					<div id="h_input">
+						Input:
+						<input id="input" type="text" name="input" oninput="baseChecker()" onkeydown="return validate(event)" autocomplete="off">
+						<input id="submit" name="submit" type="submit" value="submit" disabled="true">
+					</div>
+				</form>
+				<br>
+				Output:
+				<div id="h_output">
+					<br>
+				</div>
 			</div>
-			<div id="h_input">
-				Input:
-				<input id="input" type="text" name="input" oninput="baseChecker()">
-				<input name="submit" type="submit" value="submit">
-			</div>
-		</form>
-		<div id="h_output">
-			Output:
-			<br>
 		</div>
 	</body>
 </html>	
