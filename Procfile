@@ -1,0 +1,1 @@
+web: gunicorn interactiveGraphics:app --log-file=-
